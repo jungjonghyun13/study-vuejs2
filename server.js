@@ -1,6 +1,7 @@
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
+var querystring = require('querystring'); 
 
 var server = http.createServer(function(request,response){
   var parsedUrl = url.parse(request.url);
@@ -17,8 +18,11 @@ var server = http.createServer(function(request,response){
     case '/newitem':     // 생성 
       f_newitem(request,response);
       break;
-    case '/modifyItem':     // 수정 및 삭제 
-      f_modifyitem(request,response);
+    case '/updateitem':     // 수정
+      f_updateitem(request,response);
+      break;  
+    case '/deleteitem':     // 삭제 
+      f_deleteitem(request,response);
       break;  
     default :
       response.writeHead(404, {'Content-Type':'text/html'});
@@ -66,6 +70,40 @@ function f_item(request,response){
 };
 
 function f_newitem(request,response){
+  fs.readFile('index.html', 'utf-8', function(error, data) {
+    if(error){
+      response.writeHead(500, {'Content-Type':'text/html'});
+      response.end('500 Internal Server Error : '+error);
+    }else{
+      response.writeHead(200, {'Content-Type':'text/html'});
+      response.end(data);
+    }
+  });
+};
+function f_updateitem(request,response){
+  var parsedUrl = url.parse(request.url);
+  // 1. 객체화된 url 중에 Query String 부분만 따로 객체화 후 출력
+  var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
+  console.log(parsedQuery);
+  console.log('parsedQuery.no:['+parsedQuery.no+']');  
+
+  fs.readFile('index.html', 'utf-8', function(error, data) {
+    if(error){
+      response.writeHead(500, {'Content-Type':'text/html'});
+      response.end('500 Internal Server Error : '+error);
+    }else{
+      response.writeHead(200, {'Content-Type':'text/html'});
+      response.end(data);
+    }
+  });
+};
+function f_deleteitem(request,response){
+  var parsedUrl = url.parse(request.url);
+  // 1. 객체화된 url 중에 Query String 부분만 따로 객체화 후 출력
+  var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
+  console.log(parsedQuery);
+  console.log('parsedQuery.no:['+parsedQuery.no+']');  
+
   fs.readFile('index.html', 'utf-8', function(error, data) {
     if(error){
       response.writeHead(500, {'Content-Type':'text/html'});
