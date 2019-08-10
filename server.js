@@ -2,13 +2,7 @@ var http = require('http');
 var url = require('url');
 var fs = require('fs');
 
-var server = http.createServer(MainFunction(request, response));
-
-server.listen(8899, function(){
-    console.log('Server is running...');
-});
-
-function MainFunction(request,response){
+var server = http.createServer(function(request,response){
   var parsedUrl = url.parse(request.url);
   var resource = parsedUrl.pathname;
 
@@ -46,4 +40,8 @@ function MainFunction(request,response){
     response.end('404 Page Not Found');
   }
 
-}
+});
+
+server.listen(8899, function(){
+    console.log('Server is running...');
+});
