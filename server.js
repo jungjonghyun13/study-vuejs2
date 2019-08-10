@@ -2,33 +2,39 @@ var http = require('http');
 var url = require('url');
 var fs = require('fs');
 
-var server = http.createServer(function(request,response){
+var server = http.createServer(MainFunction(request, response));
+
+server.listen(8899, function(){
+    console.log('Server is running...');
+});
+
+function MainFunction(request,response){
   var parsedUrl = url.parse(request.url);
   var resource = parsedUrl.pathname;
 
-  // 1. ¿äÃ»µÈ ÀÚ¿øÀÌ /hello ÀÌ¸é
+  // 1. ìš”ì²­ëœ ìì›ì´ /hello ì´ë©´
   if(resource == '/index'){
-    // 2. hello.html ÆÄÀÏÀ» ÀĞÀº ÈÄ
+    // 2. hello.html íŒŒì¼ì„ ì½ì€ í›„
     fs.readFile('index.html', 'utf-8', function(error, data) {
-      // 2.1 ÀĞÀ¸¸é¼­ ¿À·ù°¡ ¹ß»ıÇÏ¸é ¿À·ùÀÇ ³»¿ëÀ»
+      // 2.1 ì½ìœ¼ë©´ì„œ ì˜¤ë¥˜ê°€ ë°œìƒí•˜ë©´ ì˜¤ë¥˜ì˜ ë‚´ìš©ì„
       if(error){
         response.writeHead(500, {'Content-Type':'text/html'});
         response.end('500 Internal Server Error : '+error);
-      // 2.2 ¾Æ¹«·± ¿À·ù°¡ ¾øÀÌ Á¤»óÀûÀ¸·Î ÀĞ±â°¡ ¿Ï·áµÇ¸é ÆÄÀÏÀÇ ³»¿ëÀ» Å¬¶óÀÌ¾ğÆ®¿¡ Àü´Ş
+      // 2.2 ì•„ë¬´ëŸ° ì˜¤ë¥˜ê°€ ì—†ì´ ì •ìƒì ìœ¼ë¡œ ì½ê¸°ê°€ ì™„ë£Œë˜ë©´ íŒŒì¼ì˜ ë‚´ìš©ì„ í´ë¼ì´ì–¸íŠ¸ì— ì „ë‹¬
       }else{
         response.writeHead(200, {'Content-Type':'text/html'});
         response.end(data);
       }
     });
-  }// 1. ¿äÃ»µÈ ÀÚ¿øÀÌ /hello ÀÌ¸é
+  }// 1. ìš”ì²­ëœ ìì›ì´ /hello ì´ë©´
   else if(resource == '/item'){
-    // 2. hello.html ÆÄÀÏÀ» ÀĞÀº ÈÄ
+    // 2. hello.html íŒŒì¼ì„ ì½ì€ í›„
     fs.readFile('item.html', 'utf-8', function(error, data) {
-      // 2.1 ÀĞÀ¸¸é¼­ ¿À·ù°¡ ¹ß»ıÇÏ¸é ¿À·ùÀÇ ³»¿ëÀ»
+      // 2.1 ì½ìœ¼ë©´ì„œ ì˜¤ë¥˜ê°€ ë°œìƒí•˜ë©´ ì˜¤ë¥˜ì˜ ë‚´ìš©ì„
       if(error){
         response.writeHead(500, {'Content-Type':'text/html'});
         response.end('500 Internal Server Error : '+error);
-      // 2.2 ¾Æ¹«·± ¿À·ù°¡ ¾øÀÌ Á¤»óÀûÀ¸·Î ÀĞ±â°¡ ¿Ï·áµÇ¸é ÆÄÀÏÀÇ ³»¿ëÀ» Å¬¶óÀÌ¾ğÆ®¿¡ Àü´Ş
+      // 2.2 ì•„ë¬´ëŸ° ì˜¤ë¥˜ê°€ ì—†ì´ ì •ìƒì ìœ¼ë¡œ ì½ê¸°ê°€ ì™„ë£Œë˜ë©´ íŒŒì¼ì˜ ë‚´ìš©ì„ í´ë¼ì´ì–¸íŠ¸ì— ì „ë‹¬
       }else{
         response.writeHead(200, {'Content-Type':'text/html'});
         response.end(data);
@@ -40,8 +46,4 @@ var server = http.createServer(function(request,response){
     response.end('404 Page Not Found');
   }
 
-});
-
-server.listen(8899, function(){
-    console.log('Server is running...');
-});
+}
