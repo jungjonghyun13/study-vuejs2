@@ -49,7 +49,7 @@ function f_item(request,response){
   // 1. 객체화된 url 중에 Query String 부분만 따로 객체화 후 출력
   var parsedQuery = querystring.parse(parsedUrl.query,'&','=');
   console.log(parsedQuery);
-  console.log('parsedQuery.no:['+parsedQuery.no+']');  
+  console.log('[f_item]parsedQuery.no:['+parsedQuery.no+']');  
 
   // 2. DB에서 해당하는 글 가져오기 
 
