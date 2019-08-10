@@ -1,0 +1,1248 @@
+﻿<html xml:lang="ko-kr" lang="ko-kr" xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>동국대학교 이클래스</title>
+	
+	<!-- Stylesheets -->
+	<!-- 기본 -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  
+	<link rel="shortcut icon" href="./lmsdata/img/common/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="./lmsdata/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="./lmsdata/css/content.css">
+	<link rel="stylesheet" type="text/css" href="./lmsdata/css/icon_button.css">
+	<link rel="stylesheet" type="text/css" href="./lmsdata/css/board.css">
+	<link rel="stylesheet" type="text/css" href="./lmsdata/css/paginator3000.css">
+	<link rel="stylesheet" type="text/css" href="./lmsdata/css/spectrum.css">
+	<link rel="stylesheet" type="text/css" href="./lmsdata/css/selectbox.css">
+	
+	<link rel="stylesheet" type="text/css" href="./lmsdata/css/classroom_basic.css">
+	<link rel="stylesheet" type="text/css" href="./lmsdata/css/jquery-ui.css">
+	
+	<link rel="stylesheet" type="text/css" href="./lmsdata/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./lmsdata/css/classroom_tablet.css" media="all and (max-width: 1217px)">  
+	<link rel="stylesheet" type="text/css" href="./lmsdata/css/jquery.mCustomScrollbar.css">
+	
+	<style type="text/css">
+	#headerContent h1 a {color:#000000;}
+	</style>
+	<style type="text/css">
+		#Cover {width:100%;background-color: #FFFFFF }
+	</style>
+	<style type="text/css">
+	#headerContent {width:100%; height:170px; overflow:hidden; background:url(./lmsdata/img/classroom/design_templet/visual_img_large01.jpg) repeat;}
+	</style>
+	
+	<!-- Scripts -->
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/common_util.js"></script>
+	
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/jquery-1.11.1.min.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/jquery-ui.min.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/common.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/paginator3000.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/spectrum.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/docs.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/jquery.easing.1.3.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/jquery.cycle.all.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/popupbox.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/message_box.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/daterangepicker.jQuery.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/date.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/jquery-ui.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/jquery.selectbox-min.js"></script>
+	
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/jquery.bxslider.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/slidebars.js"></script>
+	<script type="text/javascript">
+	
+	
+	function bluring(){
+		if(event.srcElement.tagName=="A"||event.srcElement.tagName=="IMG") document.body.focus();}
+		document.onfocusin=bluring;
+	</script>
+	
+	</head>
+	<body>
+	<script language="javascript">
+	
+	</script>
+	<div id="Cover">
+	<!-- Header 영역 부분 시작-->
+		<div id="header">
+		<link rel="stylesheet" type="text/css" href="./lmsdata/css/font-awesome.min.css">
+		<script type="text/javascript"> 
+			function courseTopnoImage(){
+				if('learner' == 'professor' ) {
+					$("#login_image").attr("src", "./lmsdata/img/common/no_professor.gif");
+				} else {
+					$("#login_image").attr("src", "./lmsdata/img/common/no_user.gif");
+				}
+			}
+			function editProfile(){
+				var url   ="";
+				
+				url="/User.do?cmd=editUserForm&boardInfoDTO.boardInfoGubun=myprofile";
+				location.href= url;
+			}
+		
+			function logOut(){
+				var url   ="";
+				//운영서버 로그아웃url
+				//url="/sso/logout.jsp";
+				url="/User.do?cmd=logoutUser";
+				location.href= url;
+			}
+			
+			//포트폴리오 메인 페이지 이동
+			function viewPortInfo(portId,portType){
+				if(portType=='L'){
+					location.href = "/PortInfo.do?cmd=viewInfoPortfolioMain&portId="+portId;
+				}else{
+					location.href = "/PortInfo.do?cmd=viewInfoPortfolioMain&portId="+portId;
+				}
+			}
+		
+		</script> 
+		<div id="header">
+		<div class="topCover">
+			<div class="hb"></div>
+			<p>
+				<a href="/Main.do?cmd=viewHome&amp;userDTO.localeKey=ko"><i class="fa fa-home" title="홈페이지 바로가기"></i><span>홈으로</span></a>
+			</p>
+	
+		
+				<div class="hb"></div>
+				<p>		
+					<a href="/Main.do?cmd=moveMenu&amp;mainDTO.parentMenuId=menu_00026&amp;mainDTO.menuId=menu_00030"><i class="fa fa-user"></i><span>마이페이지</span></a>
+				</p>
+				
+		<div class="hb"></div>
+		<script>
+			$("p.f16").click(function() {
+				$(".drawBox").toggle();
+			});
+		</script>
+		
+		<ul class="util">
+			<li class="hb p0"></li>
+			<li>
+					<a href="/Message.do?cmd=viewMessageList&amp;messageType=RECEIVE" title="새 쪽지가  0 건 있습니다.">
+					<i class="icon-note-white"></i>
+					
+						쪽 지
+					
+					<span class="num bcSkyblue">  0</span></a>
+		
+			</li>
+			<li class="hb p0"></li>
+			
+			
+			
+				
+	<!-- 		<li class="hb p0"></li> -->
+			<li class="w230">
+				<div class="photoInfo">			
+					
+				</div>
+				<dl>
+					<dt class="fontB">정종현</dt>
+					<dd class="mr5">
+						<a href="/Main.do?cmd=moveMenu&amp;mainDTO.parentMenuId=menu_00026&amp;mainDTO.menuId=menu_00243">대표권한설정</a>
+					</dd>
+					<dd>
+						<a href="javascript:logOut();">로그아웃</a>
+					</dd>
+				</dl>
+			</li>
+			<li class="hb p0"></li>
+		</ul>
+	</div>
+	</div>
+	
+	
+		</div>
+		<!-- Header 영역 부분 끝-->
+		<!-- 본문 시작 -->
+		<div id="container" class="clearfix">
+	
+			<!-- 본문 title 부분 -->
+			
+	<script type="text/JavaScript" language="JavaScript" src="/dwr/engine.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="/dwr/util.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="/dwr/interface/CourseWork.js"></script>
+	
+	
+	<script type="text/javascript">
+		var popupFormDialog = null;
+		function init(){
+			getClassroom();
+		}
+		
+		
+		function getClassroom() {
+			
+			CourseWork.getClassroomMenu(getClassroomMenuCallback);
+		}
+		
+		function getClassroomMenuCallback(classroom){
+			var status = classroom;
+			if(status=="open"){
+				initAadminClassRoomOpen();
+			}else if(status=="close"){
+				initAadminClassRoomClose();
+				
+			}
+		}
+		
+		function initAadminClassRoomOpen(){
+			if($("#headerContent").is(":hidden")){
+				$("#headerContent").slideToggle(300);
+			}
+		
+			$("#handleTopImg").attr("src", "./lmsdata/img/classroom/handle_top_on.png");
+		}
+		
+		function initAadminClassRoomClose(){
+			$("#headerContent").css("display", "none");
+			$("#handleTopImg").attr("src", "./lmsdata/img/classroom/handle_top_off.png");
+		}
+		
+		function classroomCloseCallback(ProcessResultDTO){
+			
+			initClassRoomClose();
+		}
+		function classroomOpenCallback(ProcessResultDTO){
+			initClassRoomOpen();
+		}
+		
+		function initClassRoomClose(){
+			$("#handleTopImg").attr("src", "./lmsdata/img/classroom/handle_top_off.png");
+		}
+		
+		
+		function initClassRoomOpen(){
+			
+			$("#handleTopImg").attr("src", "./lmsdata/img/classroom/handle_top_on.png");
+		}
+		
+		function viewCourse(courseIdNownerName){
+		
+			var courseId = courseIdNownerName.split(",")[0];
+			
+		// 	var courseOwnerName = courseIdNownerName.split(",")[1].trim();
+			// ie 9.0 이하에서는 trim() 함수가 적용되지 않는다.
+			// common_util.js에 프로토타입으로 정의한 함수를 사용
+			var courseOwnerName = trim(courseIdNownerName.split(",")[1]);
+			var openType        = trim(courseIdNownerName.split(",")[2]);
+			if(courseId!="" && courseOwnerName != ""){
+				if(openType!=="open"&&openType!=="mooc"){
+					location.href="/Course.do?"+
+							"cmd=viewStudyHome"+
+							"&courseDTO.courseId="+courseId+
+							"&boardInfoDTO.boardInfoGubun=study_home&boardGubun=study_course&gubun=study_course";
+				}else{
+					location.href="/Lesson.do?"+
+							"cmd=viewLessonContentsList"+
+							"&courseDTO.courseId="+courseId+
+							"&pageGubun=study_home"+
+							"&type=U"+
+							"&boardInfoDTO.boardInfoGubun=openkyoan&gubun=study_course&pageGubun=study_home";
+				}
+				
+			}else{
+				if(courseId =="") {
+					alert("강의실을 선택하여 주세요");
+				} else {
+					alert("해당 과목의 책임교수가 지정되지 않았습니다.");
+				}
+				return;
+			}
+			
+		}
+		
+		function viewCoursePlan(courseId,openType){
+			
+			if(openType!="open"){
+				location.href="/Course.do?"+
+						"cmd=viewCoursePlanChapterListNew"+
+						"&boardInfoDTO.boardInfoGubun=course_plan"+
+						"&courseDTO.courseId="+courseId+
+						"&mainDTO.parentMenuId=menu_00047&mainDTO.menuId=menu_00052";	
+				
+				
+				
+			}else{
+				location.href="/Course.do?"+
+						"cmd=viewCoursePlanChapterListNew"+
+						"&courseDTO.courseId="+courseId+
+						"&pageGubun=study_home"+
+						"&boardInfoDTO.boardInfoGubun=open_course_plan&gubun=study_course";		
+			}
+			
+			
+		}
+		
+		function viewAdminLearnerList(courseId){
+			location.href="/Learner.do?"+
+					"cmd=viewAdminLearnerList"+
+					"&courseDTO.courseId="+courseId+
+					"&boardInfoDTO.boardInfoGubun=student_manage&boardGubun=study_course";
+		}
+		
+		function viewCourseSetup(courseId){
+			location.href="/Course.do?"+
+					"cmd=viewStudyHomeSetUp"+
+					"&courseDTO.courseId="+courseId+
+					"&boardInfoDTO.boardInfoGubun=studysetup&boardGubun=study_course";
+		}
+		
+		function viewAssociateList(courseId){
+			
+			var url = "/Course.do?cmd=viewAssociateList&courseDTO.courseId="+courseId;
+			var popTitle= "공동교수정보";
+			var addContent  = "<div style='-webkit-overflow-scrolling: touch;' ><iframe id='viewAttendUserForm' name='viewAttendUserForm' width='100%' height='100%' "
+				+ "frameborder='0' scrolling='yes' src='"+url+"' title='"+popTitle+"'/></div>";
+			popupFormDialog = $(addContent);
+			
+			popupFormDialog.dialog({
+				title:"공동교수정보",
+				resizable: false,
+				autoOpen: true,
+				width:'400',
+				height:'300',
+				modal: true,
+				appendTo:"body",
+				open: function(event, ui){
+					$(this).find("iframe").focus();
+				},
+				close: function() {
+					$(this).remove();
+				}
+			});
+			
+		}
+		function sendMessage(userId){
+			
+			var url = "/Message.do?cmd=sendMessageForm&gubun=popup&messageSendDTO.receiverId="+userId
+			+"&messageSendDTO.courseId="+"";
+		
+			var popTitle="쪽지 보내기";
+			var addContent  = "<div style='-webkit-overflow-scrolling: touch;' ><iframe id='titleMessateUserForm' name='viewAttendUserForm' width='100%' height='100%' "
+			+ "frameborder='0' scrolling='yes' src='"+url+"' title='"+popTitle+"'/></div>";
+			
+			popupFormDialog = $(addContent); 
+			popupFormDialog.dialog({
+			title:"쪽지 보내기",
+			resizable: false,
+			autoOpen: true,
+			width:'750',
+			height:'720',
+			modal: true,
+			appendTo:"body",
+			open: function(event, ui){
+				$(this).find("iframe").focus();
+			},
+			close: function() {
+				$(this).remove();
+			}
+			});
+		}
+		
+		function courseTitleNoImage(){
+			$("#login_image").attr("src", "./lmsdata/img/common/no_professor.gif");
+		}
+	</script>
+	
+	<!-- mainContent 영역 부분 -->
+	<div id="headerContent">
+		<h1 class="f40">
+			<a href="/Course.do?cmd=viewStudyHome&amp;boardInfoDTO.boardInfoGubun=study_home&amp;courseDTO.courseId=S2018U0002003USCS403101">
+				융합캡스톤디자인
+					_01
+				
+				<span class="f22 fontEB ml10"></span>
+			</a>
+		</h1>
+		<div class="classSection">
+			<!-- 과목정보소개 부분 -->
+			
+			<ul class="post">
+				<li>
+					<table class="headerListClass" border="1" cellspacing="0" summary="과목 정보 입니다.">
+						<caption>이수과목과 학점</caption>
+						
+						<thead>
+							<tr class="odd-row">
+								<th abbr="이수구분" scope="col" class="first">이수구분</th>
+								<th abbr="학점" scope="col">학 점</th>
+								<th class="bgLast last" abbr="공동교수정보">공동교수정보</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="odd-row">
+								<td class="clip first" style="max-width:100px">전필</td>
+								<td>3.0 학점</td>
+								<td class="bgLast last"><span><a href="javascript:viewAssociateList('S2018U0002003USCS403101');">조회하기</a></span></td>
+							</tr>
+							
+							
+						</tbody>
+					</table>
+				</li>
+			</ul>
+			<!-- //과목정보소개 부분 -->
+			<!-- 과목교수소개 부분 -->
+			<ul class="postCover">
+				<li class="tphoto">
+					
+					
+						
+					
+	
+				</li>                                
+				<li class="tinfoList">
+					<table class="headerListPro" border="1" cellspacing="0" summary="당당교수 정보 입니다.">
+						<caption>담당교수 정보</caption>
+						<colgroup>
+						
+							<col width="120px">
+							<col width="120px">
+							<col>
+						
+						</colgroup>
+						<thead>
+							<tr class="odd-row">
+								<th abbr="대표교수" scope="col" class="first"><i class="icon-user-black"></i>대표교수</th>
+	
+								<th class="bgLast last" abbr="이메일" scope="col"><i class="icon-mail-black"></i>이메일</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="odd-row">
+								<td class="first">김동호  </td>
+								<td class="bgLast last">dongho.kim@naver.com</td>
+							</tr>
+						</tbody>
+					</table>
+				</li>
+			</ul>
+			<!-- //과목교수소개 부분 -->
+		</div>
+	</div>
+	<!-- //mainContent 영역 부분 -->
+	<!-- 강의상단메뉴 부분 -->
+	<div id="conArea">
+		<div class="class_sbox">
+				<fieldset>
+					<legend>내강의실로 이동</legend>
+					
+					
+					 <select name="courseDTO.courseId" class="default" onchange="javascript:viewCourse(this.value)" title="내강의실 목록" style="display: none;"> 
+	 <option value=""> 강의실 선택</option> 
+	 </select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: 187px;" title="내강의실 목록"><a class="chosen-single" tabindex="-1"><span> 강의실 선택</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul></div></div> 
+	
+					 
+				</fieldset>
+		</div>
+		<ul class="proFunction">
+			
+		</ul>
+	</div>
+	<!-- //강의상단메뉴 부분 -->
+	
+	<script type="text/javascript"> 
+	
+	function courseTitleNoImage(){
+		$("#courseTitleImage").attr("src", "./lmsdata/img/common/no_professor.gif");
+	}
+	
+	
+	$(document).ready(function(){
+		init(); 
+	}); 
+	
+	</script> 
+	
+			<!-- 본문 menu 부분 -->
+			
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- leftAside 영역 부분 -->
+	
+	
+	
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/jquery.bxslider.js"></script>
+	<script type="text/javascript">
+	
+	function moveContentsList(courseId,formName,boardInfoGubun,infoId,cmdName,actionName,userType,parentMenuId,menuId){
+		var url ="";	
+		var infoIdString = "";
+		if(actionName=="Etest"  ){
+			url = "/Etest.do?";
+			infoIdString = "&etestInfoDTO.etestInfoId=" + infoId;
+			
+		}else 	if(actionName=="Forum"  ){
+			url = "/Forum.do?";
+			infoIdString = "&forumInfoDTO.forumInfoId=" + infoId;
+			
+		}else 	if(actionName=="Report"  ){
+			url = "/Report.do?";
+			infoIdString = "&reportInfoDTO.reportInfoId=" + infoId;
+			
+		}else 	if(actionName=="Lesson"  ){
+			url = "/Lesson.do?";
+			infoIdString = "&lessonContentsDTO.lessonContentsId=" + infoId + "&type=U";
+			
+			
+		}else 	if(actionName=="Research"  ){
+			url = "/Research.do?";
+			infoIdString = "&researchInfoDTO.researchInfoId=" + infoId;
+		}else 	if(actionName=="Teamact"  ){
+			url = "/Teamact.do?";
+			infoIdString = "&teamactInfoDTO.teamactId=" + infoId;
+		}
+		
+		url+= "cmd="+cmdName+
+			   "&courseDTO.courseId="+courseId+
+			   "&boardInfoDTO.boardInfoGubun="+boardInfoGubun+
+			   "&boardGubun=study_course"+
+			   "&gubun=todayList"+
+			   "&pageGubun=study_home"+
+			   infoIdString +
+			   "&mainDTO.parentMenuId="+parentMenuId+
+			   "&mainDTO.menuId="+menuId;
+		location.href= url;
+	
+	}
+	
+	function moveProfContentsList(courseId,formName,boardInfoGubun,infoId,cmdName,actionName,userType,lessonElementId,parentMenuId){
+	
+		var url ="";	
+		var infoIdString = "";
+		if(actionName=="Etest"  ){
+			url = "/Etest.do?";
+			infoIdString = "&etestInfoDTO.etestInfoId=" + infoId;
+			
+		}else 	if(actionName=="Forum"  ){
+			url = "/Forum.do?";
+			infoIdString = "&forumInfoDTO.forumInfoId=" + infoId;
+			
+		}else 	if(actionName=="Report"  ){
+			url = "/Report.do?";
+			infoIdString = "&reportInfoDTO.reportInfoId=" + infoId;
+			
+		}else 	if(actionName=="Lesson"  ){
+			url = "/Lesson.do?";
+			infoIdString = "&lessonContentsDTO.lessonContentsId=" + infoId + "&type=U";
+			
+			
+		}else 	if(actionName=="Research"  ){
+			url = "/Research.do?";
+			infoIdString = "&researchInfoDTO.researchInfoId=" + infoId;
+		}
+		
+		url+= "cmd="+cmdName+
+			   "&courseDTO.courseId="+courseId+
+			   "&boardInfoDTO.boardInfoGubun="+boardInfoGubun+
+			   "&boardGubun=study_course"+
+			   "&gubun=todayList"+
+			   infoIdString +
+			   "&mainDTO.parentMenuId="+parentMenuId;
+		location.href= url;
+	
+	}
+	
+	
+	function viewLessonContentsStudy(courseId,lessonContentsId,lessonElementId, courseName){
+		var url = "/Attend.do?cmd=viewAttendProfForm&courseDTO.courseId="+courseId+"&attendStatusDTO.lessonContentsId="+lessonContentsId+"&attendStatusDTO.elementType=online&attendStatusDTO.lessonElementId="+lessonElementId;
+		
+		var popTitle="수강생 별 출결 현황";
+		var addContent  = "<div style='-webkit-overflow-scrolling: touch;' ><iframe id='viewLessonUserForm' name='viewAttendUserForm' width='100%' height='100%' "
+			+ "frameborder='0' scrolling='yes' src='"+url+"' title='"+popTitle+"'/></div>";
+			
+		
+		popupFormDialog = $(addContent);
+		
+		popupFormDialog.dialog({
+			title: courseName + " - 수강생 별 출결 현황",
+			resizable: false,
+			autoOpen: true,
+			width:'800',
+			height:'600',
+			modal: true,
+			appendTo:"body",
+			open: function(event, ui){
+				$(this).find("iframe").focus();
+			},
+			close: function() {
+				$(this).remove();
+			}
+		});
+		
+	}
+	 
+	//할일목록 읽어오기 호출
+	function viewTodayList(){
+		var url = getUrlEncode(document.URL);
+		document.location.href = "/Main.do?cmd=movePageForToday&url="+url;
+	}
+	
+	
+	</script>
+	
+	<input type="hidden" name="cmd">
+	<div id="aside">
+		  <ul id="leftMenu" class="lnb"> 
+	<li id="0" style="width: 20%;"> 
+	<h3> <i class="icon-list-white"></i>학습 목차</h3> 
+	<ul class="menuSub mp1"> 
+	<li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00091&amp;mainDTO.menuId=menu_00092&amp;courseDTO.courseId=S2018U0002003USCS403101">학습 목차</a></li> 
+	<li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00091&amp;mainDTO.menuId=menu_00099&amp;courseDTO.courseId=S2018U0002003USCS403101">강의 목록</a></li> 
+	<li class="last"><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00091&amp;mainDTO.menuId=menu_00232&amp;courseDTO.courseId=S2018U0002003USCS403101">학습자료실</a></li> 
+	</ul> 
+	<div class="menuSubHover"> 
+	<ul><li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00091&amp;mainDTO.menuId=menu_00092&amp;courseDTO.courseId=S2018U0002003USCS403101">학습 목차</a></li> 
+	<li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00091&amp;mainDTO.menuId=menu_00099&amp;courseDTO.courseId=S2018U0002003USCS403101">강의 목록</a></li> 
+	<li class="last"><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00091&amp;mainDTO.menuId=menu_00232&amp;courseDTO.courseId=S2018U0002003USCS403101">학습자료실</a></li> 
+	</ul> 
+	</div> 
+	</li> 
+	<li id="1" style="width: 20%;"> 
+	<h3> <i class="icon-nbook-white"></i>학습 정보</h3> 
+	<ul class="menuSub mp2"> 
+	<li><a href="/Course.do?cmd=viewBoardContentsList&amp;boardInfoDTO.boardInfoGubun=notice&amp;boardInfoDTO.boardInfoId=S2018U0002003USCS403101N&amp;boardInfoDTO.boardClass=notice&amp;boardInfoDTO.boardType=course&amp;courseDTO.courseId=S2018U0002003USCS403101&amp;mainDTO.parentMenuId=menu_00048&amp;mainDTO.menuId=menu_00056">공지사항</a></li> 
+	<li class="last"><a href="/Course.do?cmd=viewBoardContentsList&amp;boardInfoDTO.boardInfoGubun=qna&amp;boardInfoDTO.boardInfoId=S2018U0002003USCS403101Q&amp;boardInfoDTO.boardClass=qna&amp;boardInfoDTO.boardType=course&amp;courseDTO.courseId=S2018U0002003USCS403101&amp;mainDTO.parentMenuId=menu_00048&amp;mainDTO.menuId=menu_00056">질의응답</a></li> 
+	</ul> 
+	<div class="menuSubHover"> 
+	<ul><li><a href="/Course.do?cmd=viewBoardContentsList&amp;boardInfoDTO.boardInfoGubun=notice&amp;boardInfoDTO.boardInfoId=S2018U0002003USCS403101N&amp;boardInfoDTO.boardClass=notice&amp;boardInfoDTO.boardType=course&amp;courseDTO.courseId=S2018U0002003USCS403101&amp;mainDTO.parentMenuId=menu_00048&amp;mainDTO.menuId=menu_00056">공지사항</a></li> 
+	<li class="last"><a href="/Course.do?cmd=viewBoardContentsList&amp;boardInfoDTO.boardInfoGubun=qna&amp;boardInfoDTO.boardInfoId=S2018U0002003USCS403101Q&amp;boardInfoDTO.boardClass=qna&amp;boardInfoDTO.boardType=course&amp;courseDTO.courseId=S2018U0002003USCS403101&amp;mainDTO.parentMenuId=menu_00048&amp;mainDTO.menuId=menu_00056">질의응답</a></li> 
+	</ul> 
+	</div> 
+	</li> 
+	<li id="2" style="width: 20%;"> 
+	<h3> <i class="icon-listleve-white"></i>학습 활동 관리</h3> 
+	<ul class="menuSub mp3"> 
+	<li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00050&amp;mainDTO.menuId=menu_00062&amp;courseDTO.courseId=S2018U0002003USCS403101">출석 관리</a></li> 
+	<li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00050&amp;mainDTO.menuId=menu_00064&amp;courseDTO.courseId=S2018U0002003USCS403101">과제 관리</a></li> 
+	<li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00050&amp;mainDTO.menuId=menu_00066&amp;courseDTO.courseId=S2018U0002003USCS403101">토론 관리</a></li> 
+	<li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00050&amp;mainDTO.menuId=menu_00068&amp;courseDTO.courseId=S2018U0002003USCS403101">시험 관리</a></li> 
+	<li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00050&amp;mainDTO.menuId=menu_00070&amp;courseDTO.courseId=S2018U0002003USCS403101">설문 관리</a></li> 
+	<li class="last"><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00050&amp;mainDTO.menuId=menu_00072&amp;courseDTO.courseId=S2018U0002003USCS403101">팀활동 관리</a></li> 
+	</ul> 
+	<div class="menuSubHover"> 
+	<ul><li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00050&amp;mainDTO.menuId=menu_00062&amp;courseDTO.courseId=S2018U0002003USCS403101">출석 관리</a></li> 
+	<li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00050&amp;mainDTO.menuId=menu_00064&amp;courseDTO.courseId=S2018U0002003USCS403101">과제 관리</a></li> 
+	<li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00050&amp;mainDTO.menuId=menu_00066&amp;courseDTO.courseId=S2018U0002003USCS403101">토론 관리</a></li> 
+	<li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00050&amp;mainDTO.menuId=menu_00068&amp;courseDTO.courseId=S2018U0002003USCS403101">시험 관리</a></li> 
+	<li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00050&amp;mainDTO.menuId=menu_00070&amp;courseDTO.courseId=S2018U0002003USCS403101">설문 관리</a></li> 
+	<li class="last"><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00050&amp;mainDTO.menuId=menu_00072&amp;courseDTO.courseId=S2018U0002003USCS403101">팀활동 관리</a></li> 
+	</ul> 
+	</div> 
+	</li> 
+	<li id="6" style="width: 20%;"> 
+	<h3> <i class="icon-book-white"></i>수강생 관리</h3> 
+	<ul class="menuSub mp7"> 
+	<li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00085&amp;mainDTO.menuId=menu_00074&amp;courseDTO.courseId=S2018U0002003USCS403101">수강생 정보</a></li> 
+	<li class="last"><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00085&amp;mainDTO.menuId=menu_00086&amp;courseDTO.courseId=S2018U0002003USCS403101">팀 관리</a></li> 
+	</ul> 
+	<div class="menuSubHover"> 
+	<ul><li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00085&amp;mainDTO.menuId=menu_00074&amp;courseDTO.courseId=S2018U0002003USCS403101">수강생 정보</a></li> 
+	<li class="last"><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00085&amp;mainDTO.menuId=menu_00086&amp;courseDTO.courseId=S2018U0002003USCS403101">팀 관리</a></li> 
+	</ul> 
+	</div> 
+	</li> 
+	<li id="8" style="width: 20%;"> 
+	<h3> <i class="icon-info-white"></i>과목 정보</h3> 
+	<ul class="menuSub mp9"> 
+	<li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00047&amp;mainDTO.menuId=menu_00052&amp;courseDTO.courseId=S2018U0002003USCS403101">강의 계획서</a></li> 
+	<li class="last"><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00047&amp;mainDTO.menuId=menu_00053&amp;courseDTO.courseId=S2018U0002003USCS403101">과목 정보</a></li> 
+	</ul> 
+	<div class="menuSubHover"> 
+	<ul><li><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00047&amp;mainDTO.menuId=menu_00052&amp;courseDTO.courseId=S2018U0002003USCS403101">강의 계획서</a></li> 
+	<li class="last"><a href="/Main.do?cmd=moveCourseMenu&amp;mainDTO.parentMenuId=menu_00047&amp;mainDTO.menuId=menu_00053&amp;courseDTO.courseId=S2018U0002003USCS403101">과목 정보</a></li> 
+	</ul> 
+	</div> 
+	</li> 
+	</ul> 
+	 <div id="todayList">
+	<h2 class="f16" style="color:#666;">내 할 일 보기  <span class="num bcRed">0</span> </h2> 
+	<ul class="bxslider">
+			</ul>					
+	</div>							
+	
+	</div>
+	
+			<!-- //leftAside 영역 부분 -->
+	
+			<!-- 본문 content 부분 -->
+			<div id="bodyContent">
+				
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<script type="text/javascript">
+		var commonResultMessage = "null";
+		if(commonResultMessage=="" || commonResultMessage=="null") {
+			commonResultMessage = "null";
+		}
+		var localeKey = "ko";
+	</script>
+	
+	<script type="text/JavaScript" language="JavaScript" src="/dwr/engine.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="/dwr/util.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="/dwr/interface/CourseWork.js"></script>
+	
+	<script type="text/JavaScript" language="JavaScript" src="./lmsdata/js/message_box.js"></script>
+	<script type="text/javascript">
+	var popupFormDialog = null; //압축 진행중 Dialog
+	var popupFormDialogCompressComplete = null; //압축 완료 Dialog
+	
+		//초기 실행
+		function initPage(){
+			displayMessage();	
+		}
+		
+		// 게시글 등록
+		function addBoardContents(){
+			var f = document.courseForm;
+			f.submit();
+		}
+		
+		// 상세보기 페이지 이동
+		function moveBoardView(boardContentsId, boardNo){
+			var f = document.courseForm;
+			f["boardContentsDTO.boardContentsId"].value = boardContentsId;
+			f["boardContentsDTO.boardNo"].value = boardNo;
+	// 		f["boardContentsDTO.curPage"].value = 1;
+			f["cmd"].value = "viewBoardContents";
+			f["gubun"].value = "V";
+			f.submit();
+		}
+		
+		// 게시글 삭제
+		function deleteBoardContents(){
+			var f = document.courseForm;
+			
+			if(confirm("체크된 게시판을 모두 삭제하시겠습니까?\n주의: 게시글을 삭제하면 포함된 답변, 코멘트 모두 삭제됩니다.")){
+				f["cmd"].value = "deleteBoardContents";
+				f.submit();
+			}
+		}
+		
+		// 검색
+		function searchSubmit(){
+			
+			var f = document.courseForm;
+			f["cmd"].value = "viewBoardContentsList";
+			f.submit();
+		}
+		
+		
+		// 게시판의 리스트형 , 펼침형
+		function moveUnFoldList(){
+			
+			var f = document.courseForm;
+			f["cmd"].value  = "viewBoardContentsList";
+			f["type"].value = "U";
+			f.submit();
+		}
+		// 게시판의 리스트형 , 펼침형
+		function moveFoldList(){
+			var f = document.courseForm;
+			f["cmd"].value  = "viewBoardContentsList";
+			f.submit();
+		}
+		
+		//학습목차 이동
+		function viewStudyHome(){
+			var f = document.courseForm;
+			f["cmd"].value  = "viewStudyHome";
+			f["boardInfoDTO.boardInfoGubun"].value = "";
+			f.submit();
+		}
+		
+		function clearPds(){
+			var f = document.courseForm;
+			var boardInfoId = f["boardInfoDTO.boardInfoId"].value;
+			if(confirm("자료실의 모든 게시물이 삭제됩니다.\n초기화 하시겠습니까?")){
+				CourseWork.clearBoardContents(boardInfoId, clearPdsCallback);
+				displayWorkProgress();
+			}
+		}
+		
+		function clearPdsCallback(ProcessResultDTO) {
+			var f = document.courseForm;
+			var courseId = f["courseDTO.courseId"].value;
+			var boardInfoId = f["boardInfoDTO.boardInfoId"].value;
+			var returnMessage	= ProcessResultDTO.returnMessage;
+			alert(returnMessage);
+			closeWorkProgress();
+			searchSubmit();
+		}
+		
+		function addBoardContentsForm(){
+			var f = document.courseForm;
+			f["cmd"].value   = "addBoardContentsForm";
+			f["gubun"].value = "A";
+			f.submit();
+		}
+	
+		/********** toggle-Switch 함수 스크립트 **********/
+	
+		$(document).ready(function() {
+			var f = document.courseForm;
+			// Iterate over checkboxes
+			$("input[type=checkbox].switch").each(function() {
+			// Insert mark-up for switch
+			$(this).before(
+			'<span class="switch">' +
+			'<span class="mask" /><span class="background" />' +
+			'</span>'
+			);	
+			// Hide checkbox
+			$(this).hide();
+			// Set inital state
+			if (!$(this)[0].checked) {
+			$(this).prev().find(".background").css({left: "-27px"});
+			}
+			
+			}); // End each()// Toggle switch when clicked
+			$("span.switch").click(function() {
+			// If on, slide switch off
+			if ($(this).next()[0].checked) { 
+				
+				$(this).find(".background").animate({left: "-27px"}, 200);
+				f["type"].value = "";
+				moveFoldList();
+			
+			} else { 
+				//moveUnFoldList();
+					
+				$(this).find(".background").animate({left: "0px"}, 200);
+				f["type"].value = "U";
+				moveUnFoldList();
+			}
+			
+			// Toggle state of checkbox
+			$(this).next()[0].checked = !$(this).next()[0].checked;
+			
+			});
+			
+			displayMessage();	
+		}); // End ready()
+		
+	</script>
+	
+	
+	<script type="text/javascript">
+	//<![CDATA[
+	$(document).ready(function() {
+		
+		var f = document.courseForm;
+		
+		var searchKey = f["searchKey"].value;
+		var term = f["searchTxt"].value;
+	
+		if(term != null && term != "") {
+			$('.boardTitleNcontent').each(function() {
+				var classs = $(this).attr("class");
+				if(classs.indexOf(searchKey) > -1) {
+					var src_str = $(this).html();
+					
+					term = term.replace(/(\s+)/,"(<[^>]+>)*$1(<[^>]+>)*");
+					var pattern = new RegExp("("+term+")", "gi");
+			
+					src_str = src_str.replace(pattern, "<mark>$1</mark>");
+					src_str = src_str.replace(/(<mark>[^<>]*)((<[^>]+>)+)([^<>]*<\/mark>)/,"$1</mark>$2<mark>$4");
+					
+					$(this).html(src_str);
+				}
+			});
+		}
+	});
+	//]]>
+	
+	var btnClickStop = false;
+	var btnCompressFormClose = "N";
+	//압축 후 zip파일로 다운로드 (일괄다운로드)
+	function compressFile() {
+		//$("#downloadButton").click();
+		if(btnClickStop == true){
+			alert("기존 압축과정이 아직 완료되지 않았습니다.\n잠시 후 다시 시도하여 주십시오. ");
+			//btnClickStop = true;
+			return;
+		} else {
+			var fileCount = 0;
+			var fileListSizeArr = document.getElementsByName("fileListSize");
+			
+			for(var i = 0; i < fileListSizeArr.length; i++) {
+				fileCount += parseInt(fileListSizeArr[i].value);
+			}
+			
+			if(fileCount <= 0 ){
+				alert("첨부된 파일이 없습니다.");
+				return;
+			}
+			
+			showCompressForm('','','');		
+			btnCompressFormClose = "N";
+			btnClickStop = true;
+			var f = document.courseForm;
+			var boardInfoDTO 	= new Object();
+			
+			boardInfoDTO.boardInfoId      = f["boardInfoDTO.boardInfoId"].value;
+			
+			CourseWork.compressDownloadAttachFile(boardInfoDTO, compressDownloadCallback);
+		}
+		
+	}
+	
+	//압축 후 zip파일로 다운로드 Callback
+	function compressDownloadCallback(ProcessResultDTO) {
+		var reportInfoDTO = ProcessResultDTO.returnDto;
+		// 오류
+		if (ProcessResultDTO.returnResult == -1) {
+			commonResultMessage = "파일 압축하기 중에 오류가 발생하였습니다.";
+			displayMessage();
+			return;
+		}
+		var filePath = reportInfoDTO.filePath;
+		var fileName = reportInfoDTO.fileName;
+	
+		filePath = getUrlEncode(filePath);
+		fileName = getUrlEncode(fileName);
+		//closeButton.click();
+		
+		if(btnCompressFormClose == "N"){
+			showCompressComplete(fileName, fileName, filePath);
+		}	
+	/*	
+		if(confirm("압축이 완료되었습니다. 다운로드 받으시겠습니까?")){
+			fileDownload(fileName, fileName, filePath);
+		}
+	*/	
+		btnClickStop = false;
+		$("#compressBtn").removeAttr("disabled");
+	}
+	
+	//압축 진행창
+	function showCompressForm(fileName, fileName, filePath){
+		var f = document.courseForm;		
+		var url = "/Report.do?cmd=showCompressForm&compressFileName="+fileName+"&compressMaskFileName="+fileName+"&compressFilePath="+filePath+"&compressStatus=compressing";
+					  
+		 var addContent  = "<div style='-webkit-overflow-scrolling: touch;' ><iframe id='addCoursePopForm' name='showCompressForm' width='100%' height='100%' "
+				+ "frameborder='0' scrolling='no' src='"+url+"'/></div>";
+			popupFormDialog = $(addContent);
+			
+			popupFormDialog.dialog({
+				title: "일괄 다운로드",
+				resizable: false,
+				autoOpen: true,
+				width:'400',
+				height:'180',
+				modal: true,
+				appendTo:"body",
+				open: function(event, ui){
+					$(this).find("iframe").focus();
+				},
+				close: function() {
+					$(this).remove();
+				}
+			});
+	}	
+	
+	//압축 완료창
+	function showCompressComplete(fileName, fileName, filePath){
+		var f = document.courseForm;		
+		var url = "/Report.do?cmd=showCompressForm&compressFileName="+fileName+"&compressMaskFileName="+fileName+"&compressFilePath="+filePath+"&compressStatus=complete";
+					  
+		 var addContent  = "<div style='-webkit-overflow-scrolling: touch;' ><iframe id='addCoursePopForm' name='showCompressForm' width='100%' height='100%' "
+				+ "frameborder='0' scrolling='no' src='"+url+"'/></div>";
+			popupFormDialogCompressComplete = $(addContent);
+		
+			popupFormDialogCompressComplete.dialog({
+			title: "일괄 다운로드",
+			resizable: false,
+			autoOpen: true,
+			width:'400',
+			height:'180',
+			modal: true,
+			appendTo:"body",
+			open: function(event, ui){
+				$(this).find("iframe").focus();
+			},
+			close: function() {
+				$(this).remove();
+			}
+		});
+	}	
+	</script>
+	
+		<form name="courseForm" method="post" action="/Course.do">		 
+			<!-- 본문 content 부분 -->
+			<!-- div id="bodyContent"> -->
+			<div id="">
+				<div class="contentTitle">
+						<h2 class="f28">학습 정보</h2>
+							<ul class="location">
+							<li>> </li>
+							<li><a href="javascript:viewStudyHome();">강의실</a></li>
+							<li> > </li>
+							<li><a href="javascript:viewStudyHome();">융합캡스톤디자인</a></li>
+							<li> > </li>
+							<li>학습 정보</li>
+							<li> > </li>
+							<li>공지사항</li>
+					</ul>
+				</div>
+				
+				<div class="boardTab">
+						<ul> 
+									
+									
+										<li class="select">
+									
+									
+									<h3>
+										<a href="/Course.do?cmd=viewBoardContentsList&amp;mainDTO.parentMenuId=menu_00048&amp;mainDTO.menuId=menu_00056&amp;courseDTO.courseId=S2018U0002003USCS403101&amp;courseDTO.shareCourseId=&amp;boardInfoDTO.boardInfoId=S2018U0002003USCS403101N&amp;boardInfoDTO.boardClass=notice">
+											공지사항
+										</a>
+									</h3>
+									</li>
+									
+								
+									
+									
+										
+									
+									
+									<li>
+									
+									
+									<h3>
+										<a href="/Course.do?cmd=viewBoardContentsList&amp;mainDTO.parentMenuId=menu_00048&amp;mainDTO.menuId=menu_00056&amp;courseDTO.courseId=S2018U0002003USCS403101&amp;courseDTO.shareCourseId=&amp;boardInfoDTO.boardInfoId=S2018U0002003USCS403101Q&amp;boardInfoDTO.boardClass=qna">
+											질의응답
+										</a>
+									</h3>
+									</li>
+									
+								
+							
+						</ul>
+				</div>
+				<div class="boardOption">
+					<ul>
+						
+						<li><select name="searchKey" class="default" title="선택해주세요" style="display: none;">
+	<option value="TITLE">제목</option>
+	<option value="BOARD_CONTENTS">내용</option>
+	<option value="REG_NAME">작성자 명</option>
+	</select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: 80px;" title="선택해주세요"><a class="chosen-single" tabindex="-1"><span>제목</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul></div></div>
+	
+	</li>
+						<li id="searchbox" class="mr0">
+							<input type="text" name="searchTxt" id="search" maxlength="100" value="" title="검색">
+							<input type="image" name="" src="./lmsdata/img/common/search_btn.png" onclick="javascript:searchSubmit();" alt="search">
+						</li>
+					</ul>
+					<ul class="fr">
+						<li class="mr5">
+						
+								<font color="blue">게시일자가 없는 경우 항상 보여집니다.&nbsp;&nbsp;&nbsp;&nbsp;</font>
+							
+						
+							<a class="btn small btn-blue" href="javascript:addBoardContentsForm();">
+
+								글쓰기
+							</a>
+							
+						
+						
+							<a class="btn small" href="javascript:viewStudyHome();">
+							학습목차 </a>
+						</li>
+						
+							<li>
+							</li>
+						
+							<li class="m0">
+								<select id="listScale" name="listScale" onchange="javascript:searchSubmit();" class="default" title="선택해주세요" style="display: none;">
+	<option value="10" selected="">10</option>
+	<option value="20">20</option>
+	<option value="40">40</option>
+	<option value="50">50</option>
+	<option value="100">100</option>
+	<option value="300">300</option>
+	<option value="500">500</option>
+	</select><div class="chosen-container chosen-container-single chosen-container-single-nosearch" style="width: 46px;" title="선택해주세요" id="listScale_chosen"><a class="chosen-single" tabindex="-1"><span>10</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" readonly=""></div><ul class="chosen-results"></ul></div></div>
+	
+	
+							</li>
+						
+						
+					</ul>
+					
+				</div>
+				<div id="listBox">
+					<div id="app">
+					<table class="boardListBasic" summary="게시판 리스트입니다.">
+						<caption>게시판 리스트</caption>
+							<tr class="odd-row">
+								<th class="num first">번 호</th>
+								<th>제 목</th>
+								<th>파 일</th>
+								<th>작성자</th>
+								<th>게시일자</th>
+								<th>작성일</th>
+								<th class="last">조회수</th>
+							</tr>
+							<tr v-for="story in stories">
+								<td> {{story.index }}</td>
+								<td>
+									{{story.plot}}
+								</td>
+								<td></td>
+								<td>{{story.writer }}</td>
+								<td>2018.01.01</td>
+								<td>2018.01.02</td>
+								<td>{{story.upvotes}}</td>
+							</tr>
+					</table>
+				</div>
+								<!-- 	
+								<tr class="odd-row">
+									<td class="first">											
+												15					
+									</td>
+									
+									
+									<td class="textLeft" style="max-width:400px;">
+										<div style="margin-left: 0px;" align="absmiddle" alt="">
+											 
+										</div>
+										<div style="margin-left: 0px;" align="absmiddle" alt="">
+											<a class="clip boardTitleNcontent TITLE_ORIGIN" href="./item.html">
+												<font color=""></font>ICIP&amp;캡스톤디자인 결과발표회 안내3
+											</a>
+										</div>
+									</td>
+									<td>&nbsp;</td>
+									<td class="boardTitleNcontent REG_NAME">정종현</td>
+
+									<td>
+									</td>
+									
+									<td>2018-12-20</td>
+									<td class="last">10</td>
+								</tr>-->
+					</tbody>
+					</table>
+					<input type="hidden" name="fileListSize" value="2">
+					
+					<!-- //본문 content 부분 -->
+					
+													
+	<div class="paginator_pages">2 pages</div>						
+	<script type="text/javascript">														
+	 pag3 = new Paginator('paginator3', 2, 10, 1, '/Course.do?cmd=viewBoardContentsList&boardInfoDTO.boardInfoId=S2018U0002003USCS403101N&courseDTO.courseId=S2018U0002003USCS403101&searchKey=&searchTxt=&listScale=10&mainDTO.parentMenuId=menu_00048&mainDTO.menuId=menu_00056&type=L&type=L&curPage=');	
+	</script>																			
+	
+	
+				</div>
+			</div>
+			
+		</form>
+	
+			</div>
+		</div>
+		<!-- 본문 종료 -->
+	
+		<!-- 하단 bottom 부분 -->
+	 
+	<!-- footer 영역 부분 -->
+	<div id="footer">
+		<ul class="footerField">
+		<li class="copyright">
+			<address>
+				<p>COPYRIGHT © 2017 DONGGUK UNIVERSITY SINCE 1906. ALL RIGHTS RESERVED.</p>
+			</address>
+		</li>
+		</ul>
+				
+			
+	</div>
+	<!-- //footer 영역 부분 -->
+	
+	
+		
+	
+	</div>
+	
+	</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
+<script type="text/javascript">
+Vue.component('story', {
+    template: "#story-template",
+    props: ['story'],
+    methods:{
+        upvote: function () {
+            this.story.upvotes += 1;
+            this.story.voted = true;
+        },
+    }
+});
+
+new Vue({
+    el: '#app',
+    data: {
+        stories: [
+            {
+                plot: 'My horse is amazing.',
+                writer: 'Mr. Weebl',
+                upvotes: 28,
+                voted: false,
+            },
+            {
+                plot: 'Narwhals invented Shish Kebab.',
+                writer: 'Mr. Weebl',
+                upvotes: 8,
+                voted: false,
+            },
+            {
+                plot: 'The dark side of the Force is stronger.',
+                writer: 'Darth Vader',
+                upvotes: 49,
+                voted: false,
+            },
+            {
+                plot: 'One does not simply walk into Mordor',
+                writer: 'Boromir',
+                upvotes: 74,
+                voted: false,
+            },
+        ]
+    }
+})
+</script>
+	</html>
