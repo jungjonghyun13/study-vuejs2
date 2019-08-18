@@ -44,6 +44,18 @@ var server = http.createServer(function(request,response){
 });
 function f_index(request,response){
   // 2. hello.html 파일을 읽은 후
+  var cursor = db.collection('test').find();
+  // 2. 읽어온 document 를 cursor 에 넣고 반복처리
+  cursor.each(function(err,doc){ // document 가 예약어이기 때문에 변수명을 doc로 변경
+    if(err){
+        console.log(err);
+    }else{
+        if(doc != null){
+            // 3. document 가 정상적으로 있으면 console 에 출력해준다.
+            console.log(doc);
+        }
+    }
+  });
   fs.readFile('index.html', 'utf-8', function(error, data) {
     // 2.1 읽으면서 오류가 발생하면 오류의 내용을
     if(error){
