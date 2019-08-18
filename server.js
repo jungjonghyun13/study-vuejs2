@@ -1,7 +1,19 @@
-var http = require('http');
+﻿var http = require('http');
 var url = require('url');
 var fs = require('fs');
+var mongoose = require('mongoose');
 var querystring = require('querystring'); 
+
+mongoose.connect('mongodb://localhost:27017/test');
+var db = mongoose.connection;
+db.on('error', function(){
+    console.log('Connection Failed!');
+});
+// 5. 연결 성공
+db.once('open', function() {
+    console.log('Connected!');
+});
+
 
 var server = http.createServer(function(request,response){
   var parsedUrl = url.parse(request.url);
