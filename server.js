@@ -45,6 +45,7 @@ app.use(function(req, res, next){
       res.writeHead(404, {'Content-Type':'text/html'});
       res.end('404 Page Not Found');
   }
+  res.end();
 });
 function f_index(req,res){
   // 2. hello.html 파일을 읽은 후
