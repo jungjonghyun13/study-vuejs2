@@ -3,7 +3,7 @@ var url = require('url');
 var fs = require('fs');
 var mongoose = require('mongoose');
 var querystring = require('querystring'); 
-var static = require('server-static');
+var static = require('serve-static');
 var express = require('express');
 
 var app = express();
