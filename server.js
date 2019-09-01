@@ -57,7 +57,6 @@ function f_index(req,res){
         if(doc != null){
             // 3. document 가 정상적으로 있으면 console 에 출력해준다.
             console.log(doc);
-            res.send(doc);
         }
     }
   });
