@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var querystring = require('querystring'); 
 var static = require('serve-static');
 var express = require('express');
+var path = require('path');
 
 var app = express();
 
