@@ -9,6 +9,14 @@ var path = require('path');
 
 var app = express();
 
+var story = mongoose.Schema({
+  title : 'string',
+  writer : 'string',
+  wrt_dt : 'string',
+  cont : 'string'
+});
+
+
 mongoose.connect('mongodb://localhost:27017/test');
 var db = mongoose.connection;
 db.on('error', function(){
@@ -69,6 +77,7 @@ function f_index(req,res){
     // 2.2 아무런 오류가 없이 정상적으로 읽기가 완료되면 파일의 내용을 클라이언트에 전달
     }else{
       res.writeHead(200, {'Content-Type':'text/html'});
+      //{JJH} html 에 데이터 내용 추가 
       res.end(data);
     }
   });
@@ -99,15 +108,45 @@ function f_item(req,res){
 };
 
 function f_newitem(req,res){
-  fs.readFile('index.html', 'utf-8', function(error, data) {
-    if(error){
-      res.writeHead(500, {'Content-Type':'text/html'});
-      res.end('500 Internal Server Error : '+error);
+  
+	try {
+    var paramTitle = req.body.title
+		var paramAuthor = req.body.writer;
+    var paramCreateDate = req.body.wt_dt;
+		var paramContents = req.body.cont;
+    
+    console.log('제목 : ' + paramTitle);
+		console.log('작성자 : ' + paramAuthor);
+		console.log('내용 : ' + paramContents);
+		console.log('일시 : ' + paramCreateDate);
+    
+    var item = mongoose.model('Schema',story);
+
+    var newItem = new item({title:paramTitle, writer:paramAuthor, wrt_dt:paramCreateDate, cont:paramContents});
+
+    newItem.save(function(err, data){
+      if(err){
+        console.log(err);
     }else{
-      res.writeHead(200, {'Content-Type':'text/html'});
-      res.end(data);
+        if(doc != null){
+            // 3. document 가 정상적으로 있으면 console 에 출력해준다.
+            console.log('saved');
+        }
     }
-  });
+    });
+
+    res.writeHead(302, {
+      'Location': 'your/404/path.html'
+    });
+    response.end();
+
+	} catch(err) {
+		console.dir(err.stack);
+		
+		res.writeHead(400, {'Content-Type':'text/html;charset=utf8'});
+		res.write('<div><p> 저장 시 에러 발생</p></div>');
+		res.end();
+	}	
 };
 function f_updateitem(req,res){
   var parsedUrl = url.parse(req.url);
