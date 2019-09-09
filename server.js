@@ -35,25 +35,30 @@ app.use(function(req, res, next){
   // 1. 요청된 자원 체크 
   switch(resource){
     case '/index':    //list 보여줌 
+      console.log('route /index');
       f_index(req,res);
       break;
-    case '/item':     // 조회 
+    case '/item':     // 조회  
+    console.log('route /item');
       f_item(req,res);
       break;
-    case '/newitem':     // 생성 
+    case '/newitem':     // 생성  
+    console.log('route /newitem');
       f_newitem(req,res);
       break;
-    case '/updateitem':     // 수정
+    case '/updateitem':     // 수정 
+    console.log('route /updateitem');
       f_updateitem(req,res);
       break;  
-    case '/deleteitem':     // 삭제 
+    case '/deleteitem':     // 삭제  
+    console.log('route /deleteitem');
       f_deleteitem(req,res);
       break;  
     default :
+    console.log('route default');
       res.writeHead(404, {'Content-Type':'text/html'});
       res.end('404 Page Not Found');
   }
-  res.end();
 });
 function f_index(req,res){
   // 2. hello.html 파일을 읽은 후
