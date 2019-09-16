@@ -55,7 +55,7 @@ app.use(function(req, res, next){
       f_deleteitem(req,res);
       break;  
     default :
-         console.log('route default['+ parsedUrl+']'); 
+         console.log('route default['+ req.url+']'); 
 	res.writeHead(404, {'Content-Type':'text/html'});
       res.end('404 Page Not Found');
   }
