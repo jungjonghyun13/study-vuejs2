@@ -30,7 +30,6 @@ db.once('open', function () {
 	console.log('Connected!');
 });
 
-<<<<<<< HEAD
 app.use('/', static(path.join(__dirname, '')));
 app.use(function (req, res, next) {
 	var parsedUrl = url.parse(req.url);
@@ -81,40 +80,6 @@ app.use(function (req, res, next) {
 
 			}
 	}
-=======
-app.use('/',static(path.join(__dirname, '')));
-app.use(function(req, res, next){
-  var parsedUrl = url.parse(req.url);
-  var resource = parsedUrl.pathname;
-
-  // 1. 요청된 자원 체크 
-  switch(resource){
-    case '/index':    //list 보여줌 
-      console.log('route /index');
-      f_index(req,res);
-      break;
-    case '/item':     // 조회  
-    console.log('route /item');
-      f_item(req,res);
-      break;
-    case '/newitem':     // 생성  
-    console.log('route /newitem');
-      f_newitem(req,res);
-      break;
-    case '/updateitem':     // 수정 
-    console.log('route /updateitem');
-      f_updateitem(req,res);
-      break;  
-    case '/deleteitem':     // 삭제  
-    console.log('route /deleteitem');
-      f_deleteitem(req,res);
-      break;  
-    default :
-         console.log('route default['+ req.url+']'); 
-	res.writeHead(404, {'Content-Type':'text/html'});
-      res.end('404 Page Not Found');
-  }
->>>>>>> fbee0b4746b7e0d7b618c5d96ebb46230afd0667
 });
 
 
@@ -307,11 +272,6 @@ function f_deleteitem(req, res) {
 	});
 };
 
-<<<<<<< HEAD
 http.createServer(app).listen(8899, function () {
 	console.log('Server is running...');
-=======
-http.createServer(app).listen(8877, function(){
-    console.log('Server is running...');
->>>>>>> fbee0b4746b7e0d7b618c5d96ebb46230afd0667
 });
