@@ -1,4 +1,12 @@
-﻿var http = require('http');
+﻿/*
+
+npm install serve-static
+npm install express
+npm install body-parser
+npm install mongo-client
+npm install mongoose
+*/
+var http = require('http');
 var url = require('url');
 var fs = require('fs');
 var mongoose = require('mongoose');
@@ -259,15 +267,33 @@ function f_deleteitem(req, res) {
 	// 1. 객체화된 url 중에 Query String 부분만 따로 객체화 후 출력
 	var parsedQuery = querystring.parse(parsedUrl.query, '&', '=');
 	console.log(parsedQuery);
-	console.log('parsedQuery.no:[' + parsedQuery.no + ']');
+	// 2. DB에서 해당하는 글 가져오기newitem 
 
-	fs.readFile('index.html', 'utf-8', function (error, data) {
+	// 3. 데이터를 html 소스에 뿌리기 
+	// 2. hello.html 파일을 읽은 후
+	fs.readFile('item.html', 'utf-8', function (error, data) {
+		// 2.1 읽으면서 오류가 발생하면 오류의 내용을
 		if (error) {
 			res.writeHead(500, { 'Content-Type': 'text/html' });
 			res.end('500 Internal Server Error : ' + error);
+			// 2.2 아무런 오류가 없이 정상적으로 읽기가 완료되면 파일의 내용을 클라이언트에 전달
 		} else {
-			res.writeHead(200, { 'Content-Type': 'text/html' });
-			res.end(data);
+			//{JJH} html 에 데이터 내용 추가 
+			console.log('[item] 1');
+			console.log('parsedQuery.id: '+parsedQuery.mkey);
+
+			db.collection('test').remove({'mkey':parsedQuery.mkey},function(err,removed){
+				if(err){
+					console.log(err);
+				}else{
+					console.log('removed successfully!');
+				}
+			});
+	
+			res.writeHead(302, {
+				'Location': '/index'
+			});
+			res.end();
 		}
 	});
 };
