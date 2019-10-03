@@ -47,7 +47,7 @@ def notUseSpace(toiletID):
     
 toiletID=''
 testIDX=0  #Test var
-with open("toiletID.txt", "r") as f:
+with open("/var/etc/valData/toiletID.txt", "r") as f:
     data = f.read()    
     toiletID=data.split('=')[1]
 

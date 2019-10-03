@@ -1,6 +1,8 @@
 FROM python
 
 RUN mkdir -p /var/etc/MyData
+RUN mkdir -p /var/etc/valData
+
 RUN pip install firebase_admin
 
 add ajoah2019 /var/etc/MyData
