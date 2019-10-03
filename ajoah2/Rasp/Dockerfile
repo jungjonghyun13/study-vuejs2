@@ -1,7 +1,6 @@
 FROM python
 
 RUN mkdir -p /var/etc/MyData
-RUN mkdir -p /var/etc/valData
 
 RUN pip install firebase_admin
 
