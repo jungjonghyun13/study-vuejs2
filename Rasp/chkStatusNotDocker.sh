@@ -37,6 +37,7 @@ do
         REVISION=$(expr substr $(git rev-parse HEAD) 1 7)
 
         kill -8 $RUN_PID
+        sleep 5
         python3 ajoah2019/$RUNFILE &
         RUN_PID=`ps -a | grep python3 | awk '{print $1 }'`
         echo "[$RUN_PID"]
