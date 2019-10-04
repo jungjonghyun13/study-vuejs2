@@ -11,7 +11,7 @@ REVISION=$(expr substr $(git rev-parse HEAD) 1 7)
 
 python3 ajoah2019/$RUNFILE &
 RUN_PID=`ps -a | grep python3 | awk '{print $1 }'`
-echo $RUN_PID
+echo "[$RUN_PID]"
 
 while [ 0 = 0 ]
 do 
@@ -39,7 +39,7 @@ do
         kill -8 $RUN_PID
         python3 ajoah2019/$RUNFILE &
         RUN_PID=`ps -a | grep python3 | awk '{print $1 }'`
-        echo $RUN_PID
+        echo "[$RUN_PID"]
         
     fi
     
