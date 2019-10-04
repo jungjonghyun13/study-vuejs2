@@ -8,11 +8,20 @@ APPNAME=ajoah
 APP_DIR=/var/etc/MyData
 REVISION=$(expr substr $(git rev-parse HEAD) 1 7)
 
+# 0. delete all python cmd 
+RUN_PID=`ps -a | grep python3 | awk '{print $1 }'`
+for pid in $RUN_PID
+do
+    kill -8 $pid
+    sleep 3
+done
 
+# 0.1 Run base program
 python3 ajoah2019/$RUNFILE &
 RUN_PID=`ps -a | grep python3 | awk '{print $1 }'`
 echo "[$RUN_PID]"
 
+# chk src
 while [ 0 = 0 ]
 do 
     # 1. Get server data for update
@@ -44,6 +53,6 @@ do
         
     fi
     
-    sleep 2
+    sleep 3
 done
 
