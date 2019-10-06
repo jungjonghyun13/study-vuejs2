@@ -9,7 +9,9 @@ REVISION=$(expr substr $(git rev-parse HEAD) 1 7)
 docker build --tag $APPNAME:$REVISION .
 docker stop $APPNAME
 docker rm $APPNAME
-docker run -it --name $APPNAME -v $PWD/toiletID.txt/:/var/etc/MyData/toiletID.txt -p 80:80 $APPNAME:$REVISION
+docker run -it --name $APPNAME -v $PWD/toiletID.txt/:/var/etc/MyData/toiletID.txt  $APPNAME:$REVISION
+#docker run -it --name ajoah -v $PWD/toiletID.txt/:/var/etc/MyData/toiletID.txt ajoah:ac38061 
+
 
 while [ 0 = 0 ]
 do 
@@ -37,7 +39,7 @@ do
         docker build --tag $APPNAME:$REVISION .
         docker stop $APPNAME
         docker rm $APPNAME
-        docker run -it --name $APPNAME -v $PWD/toiletID.txt/:/var/etc/MyData/toiletID.txt -p 80:80 $APPNAME:$REVISION
+        docker run -it --name $APPNAME -v $PWD/toiletID.txt/:/var/etc/MyData/toiletID.txt $APPNAME:$REVISION
 
     fi
     
